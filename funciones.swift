@@ -52,3 +52,69 @@ func Fibonacci(n: Int) -> Int {
 for i in 0...num {
     print("\(i): \(Fibonacci(n: i))")
 }
+
+//: Funciones que reciben una secuencia
+
+func sumaMejorada(numeros: Float...) -> Float {
+    var suma:Float = 0
+    for numero in numeros {
+        suma += numero
+    }
+    return suma
+}
+print(sumaMejorada(numeros: 1,6,3))
+print(sumaMejorada(numeros: 14,65,37,45,21,0,1))
+print(sumaMejorada())
+
+//: Funciones anidadas
+func funcionPrincipal() -> Int {
+    var y = 10
+    func funcionAnidada() {
+        y += 5
+        func funcionAnidadaAnidada() {
+            y+=500
+        }
+        funcionAnidadaAnidada()
+    }
+    funcionAnidada()
+    return y
+}
+print(funcionPrincipal())
+
+//: Las funciones pueden devolver funciones
+func makeIncrement() -> ((Int) -> Int) {
+    func addOne(number: Int) -> Int {
+        return number + 1
+    }
+    return addOne
+}
+var increment = makeIncrement()
+print(increment(6))
+
+//: Las funciones pueden recibir funciones como argumento
+func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
+    for number in list {
+        if condition(number) == true {
+            return true
+        } 
+    }
+    return false
+}
+
+func par(n: Int) -> Bool {
+    return n%2==0 ? true : false
+}
+
+let lista = [3,5,7,87,1,33,79]
+print(hasAnyMatches(list: lista, condition: par))
+
+//: Funciones anónimas
+// Ejemplo: Una función anónima que recibe la lista y multiplica cada elemento por 3
+print(lista.map({
+    (number:Int) -> Int in
+    let result = 3 * number
+    return result
+}))
+
+// Sintáxis más concisa
+print(lista.map({number in 3 * number}))
