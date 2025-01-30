@@ -47,6 +47,50 @@ print(tuplePro)
 
 // Mega-Biblioteca de swift
 import Foundation
-// Circulo unitario
+import CoreGraphics
+// Circulo unitario: Función tradicional
+let unitCircle : (center: (x: CGFloat, y: CGFloat), radius: CGFloat) = ((0, 0), 1)
+print(unitCircle)
+func doubleRadius(ofCircle circle: (center: (x: CGFloat, y: CGFloat), radius: CGFloat)) 
+    -> (center: (x: CGFloat, y: CGFloat), radius: CGFloat) {
+        return (circle.center, circle.radius*2)
+}
 
-// Método que construya una pseudo-clase circulo y métodos
+let circulo1 = doubleRadius(ofCircle: (center: (x:2, y:5), radius: 6.5))
+print(circulo1)
+let circulo2 = doubleRadius(ofCircle: unitCircle)
+print(circulo2)
+
+// Circulo unitario: Alias de la tupla
+typealias Circle = (center: (x:CGFloat, y:CGFloat), radius: CGFloat)
+let unitCircle2: Circle = ((0, 0), 1)
+print(unitCircle2)
+
+func doubleRadiusPremium(circle: Circle) -> Circle {
+    return (circle.center, circle.radius*2)
+}
+let circulo3 = doubleRadiusPremium(circle: Circle((5,4),7.32))
+print(circulo3)
+
+//: Uso útil -> Intercambio de valores
+var a = "Marty McFly"
+var b = "Emmet Brown"
+var c = "Great Scott!!"
+var d = "Hello, is anbody home?"
+
+(a, b, c, d) = (d, c, b, a)
+print(a, b, c, d)
+
+let Tupla = (first: true, second: false)
+
+switch Tupla {
+    case (false, false):
+        print("FF")
+    case (false, true):
+        print("FT")
+    case (true, false):
+        print("TF")
+    case (true, true): 
+        print("TT")
+}
+
