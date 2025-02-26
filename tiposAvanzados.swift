@@ -77,3 +77,69 @@ for (k, v) in dict3 {
     print("\(k): \(v)")
 }
 
+//: Estructuras
+struct Person {
+    var name = ""
+    var age = 0
+}
+
+var person1 = Person() 
+person1.name = "Clara"
+person1.age = 12
+
+print("Nombre: \(person1.name) y edad: \(person1.age)")
+
+struct Car {
+    var gear = 0 
+
+    func applyBreak() {
+        print("Breaking!")
+    }
+}
+
+var car1 = Car() 
+car1.gear = 5
+print("Gear number: \(car1.gear)")
+car1.applyBreak()
+
+
+//: Enums: Enumeraciones básicas
+enum Season {
+    case spring
+    case summer
+    case autumn
+    case winter
+}
+
+// enum Season {
+//  case spring, summer, autumn, winter    
+//}
+
+// declaración
+var currentSeason: Season
+// asignación
+currentSeason = Season.winter
+print(currentSeason)
+
+enum PizzaSize {
+    case small, medium, large
+}
+var size = PizzaSize.medium
+
+switch(size) {
+    case .small: 
+        print("Small size")
+    case .medium:
+        print("Medium size")
+    case .large:
+        print("Large size")
+}
+
+// Iterable
+enum Season2: CaseIterable {
+    case spring, summer, autumn, winter
+}
+
+for season in Season2.allCases {
+    print(season)
+}
