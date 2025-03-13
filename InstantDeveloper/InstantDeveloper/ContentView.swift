@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    
     var body: some View {
         VStack(spacing: 20) {
             VStack {
@@ -37,6 +40,12 @@ struct ContentView: View {
             Text("Need help with coding problems?, Register!")
             
             Spacer()
+            
+            if verticalSizeClass == .compact {
+                HSignUpButtonGroup()
+            } else {
+                VSignUpButtonGroup()
+            }
         }
         .padding(.top, 40)
     }
@@ -44,7 +53,77 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-.previewInterfaceOrientation(.portrait)
+        Group {
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 13 Pro"))
+                .previewDisplayName("iPhone 13 Pro")
+                .previewInterfaceOrientation(.portrait)
+            
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 13 Pro"))
+                .previewDisplayName("iPhone 13 Pro")
+                .previewInterfaceOrientation(.landscapeLeft)
+        }
+            
+    }
+}
+
+struct VSignUpButtonGroup: View {
+    var body: some View {
+        VStack {
+            Button {
+                // Action
+            } label: {
+                // Label
+                Text("Sign up")
+            }
+            .frame(width: 200)
+            .padding()
+            .foregroundColor(.white)
+            .background(Color.indigo)
+            .cornerRadius(10)
+            
+            Button {
+                // Action
+            } label: {
+                // Label
+                Text("Log in")
+            }
+            .frame(width: 200)
+            .padding()
+            .foregroundColor(.white)
+            .background(Color.gray)
+            .cornerRadius(10)
+        }
+    }
+}
+
+struct HSignUpButtonGroup: View {
+    var body: some View {
+        HStack {
+            Button {
+                // Action
+            } label: {
+                // Label
+                Text("Sign up")
+            }
+            .frame(width: 200)
+            .padding()
+            .foregroundColor(.white)
+            .background(Color.indigo)
+            .cornerRadius(10)
+            
+            Button {
+                // Action
+            } label: {
+                // Label
+                Text("Log in")
+            }
+            .frame(width: 200)
+            .padding()
+            .foregroundColor(.white)
+            .background(Color.gray)
+            .cornerRadius(10)
+        }
     }
 }
