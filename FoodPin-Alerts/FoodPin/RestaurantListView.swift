@@ -16,6 +16,8 @@ struct RestaurantListView: View {
         
     var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
     
+    @State var restaurantIsFavorites = Array(repeating: false, count: 21)
+    
     var body: some View {
         List {
             ForEach(restaurantNames.indices, id: \.self) { index in
@@ -23,7 +25,8 @@ struct RestaurantListView: View {
                         imageName: restaurantImages[index],
                         name: restaurantNames[index],
                         type: restaurantTypes[index],
-                        location: restaurantLocations[index]
+                        location: restaurantLocations[index],
+                        isFavorite: $restaurantIsFavorites[index]
                     )
             }
             .listRowSeparator(.hidden)
@@ -69,6 +72,8 @@ struct FullImageRow: View {
     var location: String
         
     @State private var showOptions = false
+    @State private var showError = false
+    @Binding var isFavorite: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -78,19 +83,28 @@ struct FullImageRow: View {
                 .frame(height: 200)
                 .cornerRadius(20)
             
-            VStack(alignment: .leading) {
-                Text(name)
-                    .font(.system(.title2, design: .rounded))
+            HStack() {
+                VStack(alignment: .leading) {
+                    Text(name)
+                        .font(.system(.title2, design: .rounded))
+                        
+                    Text(type)
+                        .font(.system(.body, design: .rounded))
                     
-                Text(type)
-                    .font(.system(.body, design: .rounded))
+                    Text(location)
+                        .font(.system(.subheadline, design: .rounded))
+                        .foregroundColor(.gray)
+                }
+                .padding(.horizontal)
+                .padding(.bottom)
                 
-                Text(location)
-                    .font(.system(.subheadline, design: .rounded))
-                    .foregroundColor(.gray)
+                if isFavorite {
+                    Spacer()
+                    Image(systemName: "heart.fill")
+                        .foregroundColor(.red)
+                        .font(.system(size: 50))
+                }
             }
-            .padding(.horizontal)
-            .padding(.bottom)
         }
         .onTapGesture {
             showOptions.toggle()
@@ -100,13 +114,21 @@ struct FullImageRow: View {
                         message: Text("Adittional message"),
                         buttons: [
                             .default(Text("Reserve a table")) {
-                                
+                                self.showError.toggle()
                             },
                             .default(Text("Mark as favorite")) {
-                                
+                                self.isFavorite.toggle()
                             },
                             .cancel()
                         ]
+            )
+        }
+        .alert(isPresented: $showError) {
+            Alert(
+                title: Text("Not yet available"),
+                message: Text("Sorry, this feature is not available yet. Please retry later."),
+                primaryButton: .default(Text("OK")),
+                secondaryButton: .cancel()
             )
         }
     }
