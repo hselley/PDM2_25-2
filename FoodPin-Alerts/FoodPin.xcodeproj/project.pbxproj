@@ -11,6 +11,7 @@
 		F4C0D11A26F9C46300AC5088 /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0D11926F9C46300AC5088 /* RestaurantListView.swift */; };
 		F4C0D11C26F9C46500AC5088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0D11B26F9C46500AC5088 /* Assets.xcassets */; };
 		F4C0D11F26F9C46500AC5088 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0D11E26F9C46500AC5088 /* Preview Assets.xcassets */; };
+		FB028C4D2D8B3CBB00FD6324 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB028C4C2D8B3CBB00FD6324 /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		F4C0D11926F9C46300AC5088 /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
 		F4C0D11B26F9C46500AC5088 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4C0D11E26F9C46500AC5088 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FB028C4C2D8B3CBB00FD6324 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,9 @@
 		F4C0D11626F9C46300AC5088 /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				FB028C4F2D8B487900FD6324 /* Model */,
+				FB028C4E2D8B487200FD6324 /* View */,
 				F4C0D11726F9C46300AC5088 /* FoodPinApp.swift */,
-				F4C0D11926F9C46300AC5088 /* RestaurantListView.swift */,
 				F4C0D11B26F9C46500AC5088 /* Assets.xcassets */,
 				F4C0D11D26F9C46500AC5088 /* Preview Content */,
 			);
@@ -65,6 +68,22 @@
 				F4C0D11E26F9C46500AC5088 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FB028C4E2D8B487200FD6324 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4C0D11926F9C46300AC5088 /* RestaurantListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB028C4F2D8B487900FD6324 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB028C4C2D8B3CBB00FD6324 /* Restaurant.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +158,7 @@
 			files = (
 				F4C0D11A26F9C46300AC5088 /* RestaurantListView.swift in Sources */,
 				F4C0D11826F9C46300AC5088 /* FoodPinApp.swift in Sources */,
+				FB028C4D2D8B3CBB00FD6324 /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
