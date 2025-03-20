@@ -40,7 +40,28 @@ struct RestaurantListView: View {
                     FullImageRow(
                         restaurant: $restaurants[index]
                     )
+                    .swipeActions(
+                        edge: .leading,
+                        allowsFullSwipe: false,
+                        content: {
+                            Button {
+                                
+                            } label: {
+                                Image(systemName: "heart")
+                            }
+                            .tint(.green)
+                            
+                            Button {
+                                
+                            } label: {
+                                Image(systemName: "square.and.arrow.up")
+                            }
+                            .tint(.orange)
+                    })
             }
+            .onDelete(perform: { indexSet in
+                restaurants.remove(atOffsets: indexSet)
+            })
             .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
@@ -117,23 +138,51 @@ struct FullImageRow: View {
                 }
             }
         }
-        .onTapGesture {
-            showOptions.toggle()
+        .contextMenu {
+            Button(action: {
+                self.showError.toggle()
+            }) {
+                HStack {
+                    Text("Reserve a table")
+                    Image(systemName: "phone")
+                }
+            }
+            
+            Button(action: {
+                self.restaurant.isFavorite.toggle()
+            }) {
+                HStack {
+                    Text(restaurant.isFavorite ? "Remove from favorites" : "Mark as favorite")
+                    Image(systemName: "heart")
+                }
+            }
+            
+            Button(action: {
+                self.showOptions.toggle()
+            }) {
+                HStack {
+                    Text("Share")
+                    Image(systemName: "square.and.arrow.up")
+                }
+            }
         }
-        .actionSheet(isPresented: $showOptions) {
-            ActionSheet(title: Text("What do you want to do?"),
-                        message: Text("Adittional message"),
-                        buttons: [
-                            .default(Text("Reserve a table")) {
-                                self.showError.toggle()
-                            },
-                            .default(Text("Mark as favorite")) {
-                                self.restaurant.isFavorite.toggle()
-                            },
-                            .cancel()
-                        ]
-            )
-        }
+//        .onTapGesture {
+//            showOptions.toggle()
+//        }
+//        .actionSheet(isPresented: $showOptions) {
+//            ActionSheet(title: Text("What do you want to do?"),
+//                        message: Text("Adittional message"),
+//                        buttons: [
+//                            .default(Text("Reserve a table")) {
+//                                self.showError.toggle()
+//                            },
+//                            .default(Text("Mark as favorite")) {
+//                                self.restaurant.isFavorite.toggle()
+//                            },
+//                            .cancel()
+//                        ]
+//            )
+//        }
         .alert(isPresented: $showError) {
             Alert(
                 title: Text("Not yet available"),
