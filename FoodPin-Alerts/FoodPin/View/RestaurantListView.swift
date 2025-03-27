@@ -35,36 +35,27 @@ struct RestaurantListView: View {
 
     
     var body: some View {
-        List {
-            ForEach(restaurants.indices, id: \.self) { index in
-                    FullImageRow(
-                        restaurant: $restaurants[index]
-                    )
-                    .swipeActions(
-                        edge: .leading,
-                        allowsFullSwipe: false,
-                        content: {
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "heart")
-                            }
-                            .tint(.green)
-                            
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "square.and.arrow.up")
-                            }
-                            .tint(.orange)
-                    })
+        NavigationView {
+            List {
+                ForEach(restaurants.indices, id: \.self) { index in
+                    NavigationLink(destination: RestaurantDetailView(restaurant: restaurants[index])) {
+                            FullImageRow(
+                                restaurant: $restaurants[index]
+                            )
+                    }
+                        
+                }
+                .onDelete(perform: { indexSet in
+                    restaurants.remove(atOffsets: indexSet)
+                })
+                .listRowSeparator(.hidden)
             }
-            .onDelete(perform: { indexSet in
-                restaurants.remove(atOffsets: indexSet)
-            })
-            .listRowSeparator(.hidden)
+            .listStyle(.plain)
+            
+            .navigationTitle("FoodPin")
+            .navigationBarTitleDisplayMode(.automatic)
         }
-        .listStyle(.plain)
+        .accentColor(.white)
     }
 }
 
@@ -106,7 +97,6 @@ struct FullImageRow: View {
     @State private var showOptions = false
     @State private var showError = false
     
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Image(restaurant.image)
@@ -138,6 +128,24 @@ struct FullImageRow: View {
                 }
             }
         }
+        .swipeActions(
+            edge: .leading,
+            allowsFullSwipe: false,
+            content: {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "heart")
+                }
+                .tint(.green)
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "square.and.arrow.up")
+                }
+                .tint(.orange)
+        })
         .contextMenu {
             Button(action: {
                 self.showError.toggle()
@@ -164,6 +172,15 @@ struct FullImageRow: View {
                     Text("Share")
                     Image(systemName: "square.and.arrow.up")
                 }
+            }
+        }
+        .sheet(isPresented: $showOptions) {
+            let defaultText = "Just checking in at \(restaurant.name)"
+            
+            if let imageToShare = UIImage(named: restaurant.image) {
+                ActivityView(activityItems: [defaultText, imageToShare])
+            } else {
+                ActivityView(activityItems: [defaultText])
             }
         }
 //        .onTapGesture {

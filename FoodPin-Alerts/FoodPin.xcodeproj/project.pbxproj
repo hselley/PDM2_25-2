@@ -12,6 +12,8 @@
 		F4C0D11C26F9C46500AC5088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0D11B26F9C46500AC5088 /* Assets.xcassets */; };
 		F4C0D11F26F9C46500AC5088 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0D11E26F9C46500AC5088 /* Preview Assets.xcassets */; };
 		FB028C4D2D8B3CBB00FD6324 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB028C4C2D8B3CBB00FD6324 /* Restaurant.swift */; };
+		FB34C3752D8DE6AE004C3B46 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34C3742D8DE6AE004C3B46 /* ActivityView.swift */; };
+		FB83140D2D95CB660001263A /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83140C2D95CB660001263A /* RestaurantDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		F4C0D11B26F9C46500AC5088 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4C0D11E26F9C46500AC5088 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FB028C4C2D8B3CBB00FD6324 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		FB34C3742D8DE6AE004C3B46 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityView.swift; path = FoodPin/View/ActivityView.swift; sourceTree = SOURCE_ROOT; };
+		FB83140C2D95CB660001263A /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +77,9 @@
 		FB028C4E2D8B487200FD6324 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB34C3742D8DE6AE004C3B46 /* ActivityView.swift */,
 				F4C0D11926F9C46300AC5088 /* RestaurantListView.swift */,
+				FB83140C2D95CB660001263A /* RestaurantDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,6 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4C0D11A26F9C46300AC5088 /* RestaurantListView.swift in Sources */,
+				FB83140D2D95CB660001263A /* RestaurantDetailView.swift in Sources */,
+				FB34C3752D8DE6AE004C3B46 /* ActivityView.swift in Sources */,
 				F4C0D11826F9C46300AC5088 /* FoodPinApp.swift in Sources */,
 				FB028C4D2D8B3CBB00FD6324 /* Restaurant.swift in Sources */,
 			);
