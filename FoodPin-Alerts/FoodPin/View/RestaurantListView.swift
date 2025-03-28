@@ -38,10 +38,15 @@ struct RestaurantListView: View {
         NavigationView {
             List {
                 ForEach(restaurants.indices, id: \.self) { index in
-                    NavigationLink(destination: RestaurantDetailView(restaurant: restaurants[index])) {
-                            FullImageRow(
-                                restaurant: $restaurants[index]
-                            )
+                    ZStack {
+                        NavigationLink(destination: RestaurantDetailView(restaurant: restaurants[index])) {
+                                EmptyView()
+                        }
+                        .opacity(0) // Opcional, sin este modificador se esconde el chevron.right
+                        
+                        FullImageRow(
+                            restaurant: $restaurants[index]
+                        )
                     }
                         
                 }
