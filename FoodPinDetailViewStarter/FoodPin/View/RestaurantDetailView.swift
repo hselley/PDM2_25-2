@@ -22,12 +22,13 @@ struct RestaurantDetailView: View {
                     .frame(height: 445)
                     .overlay {
                         VStack {
-                            Image(systemName: "heart")
+                            Image(systemName:
+                                    restaurant.isFavorite ? "heart.fill" : "heart")
                                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
                                 .padding()
                                 .font(.system(size: 30))
                                 .foregroundColor(.white)
-    //                            .padding(.top, 40)
+                                .padding(.top, 40)
                             
                             VStack(alignment: .leading, spacing: 5) {
                                 Text(restaurant.name)
@@ -46,6 +47,26 @@ struct RestaurantDetailView: View {
                 Text(restaurant.description)
                     .multilineTextAlignment(.center)
                     .padding()
+                                
+                HStack(alignment: .top) {
+                    VStack(spacing: 5) {
+                        Text("Address")
+                            .font(.system(.headline, design: .rounded))
+                        
+                        Text(restaurant.location)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    
+                    
+                    VStack(spacing: 5) {
+                        Text("Phone")
+                            .font(.system(.headline, design: .rounded))
+                        
+                        Text(restaurant.phone)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                .padding()
             }
             
             
@@ -57,9 +78,12 @@ struct RestaurantDetailView: View {
                     dismiss()
                 }) {
                     Text("\(Image(systemName: "chevron.left")) \(restaurant.name)")
+                        .foregroundColor(Color.white)
                 }
             }
         }
+        .ignoresSafeArea()
+        
     }
 }
 
