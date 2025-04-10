@@ -8,8 +8,14 @@
 import SwiftUI
 import MapKit
 
+struct AnnotatedItem: Identifiable { // Identifiable es un protocolo de SwiftUI
+    var id = UUID() // UUID: Universal Unique ID
+    var coordinate: CLLocationCoordinate2D
+}
+
 struct MapView: View {
     var location: String = ""
+    var interactionModes: MapInteractionModes = .all
     
     @State private var region: MKCoordinateRegion = MKCoordinateRegion(
             center: CLLocationCoordinate2D(
@@ -20,6 +26,9 @@ struct MapView: View {
                 longitudeDelta: 1.0
             )
         )
+    @State private var annotatedItem: AnnotatedItem = AnnotatedItem(
+        coordinate: CLLocationCoordinate2D(latitude: 51.510357, longitude: -0.116773)
+    )
     
     private func convertAddress(location: String) {
         // Get location
@@ -35,18 +44,23 @@ struct MapView: View {
                     guard let placemarks = placemarks,
                         let location = placemarks[0].location else {
                                 return
-                          }
+                    }
             
             self.region = MKCoordinateRegion(
                 center: location.coordinate,
                 span: MKCoordinateSpan(
                     latitudeDelta: 0.0015,
                     longitudeDelta: 0.0015))
+            
+            self.annotatedItem = AnnotatedItem(coordinate: location.coordinate)
         })
     }
     
     var body: some View {
-        Map(coordinateRegion: $region)
+        Map(coordinateRegion: $region, interactionModes: interactionModes,
+            annotationItems: [annotatedItem]) {
+            item in MapMarker(coordinate: item.coordinate, tint: .blue)
+        }
             .task {
                 convertAddress(location: location)
             }
@@ -55,6 +69,6 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(location: "Paseo Interlomas")
+        MapView(location: "54 Frith Street London W1D 4SL United Kingdom")
     }
 }
