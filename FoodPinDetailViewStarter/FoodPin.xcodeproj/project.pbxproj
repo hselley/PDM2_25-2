@@ -14,6 +14,7 @@
 		F4C0D11A26F9C46300AC5088 /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0D11926F9C46300AC5088 /* RestaurantListView.swift */; };
 		F4C0D11C26F9C46500AC5088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0D11B26F9C46500AC5088 /* Assets.xcassets */; };
 		F4C0D11F26F9C46500AC5088 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0D11E26F9C46500AC5088 /* Preview Assets.xcassets */; };
+		FB22CBE02DB964CB00DFFC22 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22CBDF2DB964CB00DFFC22 /* ReviewView.swift */; };
 		FB4EEF7D2DA6EE23005C1F4F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4EEF7C2DA6EE23005C1F4F /* MapView.swift */; };
 		FB5C213C2D9DB66500437AA9 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB5C213A2D9DB66500437AA9 /* Nunito-Bold.ttf */; };
 		FB5C213D2D9DB66500437AA9 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB5C213B2D9DB66500437AA9 /* Nunito-Regular.ttf */; };
@@ -28,6 +29,7 @@
 		F4C0D11926F9C46300AC5088 /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
 		F4C0D11B26F9C46500AC5088 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4C0D11E26F9C46500AC5088 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FB22CBDF2DB964CB00DFFC22 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		FB4EEF7C2DA6EE23005C1F4F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FB5C213A2D9DB66500437AA9 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Bold.ttf"; path = "../../../Nunito/static/Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		FB5C213B2D9DB66500437AA9 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Regular.ttf"; path = "../../../Nunito/static/Nunito-Regular.ttf"; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 				F4C0D11926F9C46300AC5088 /* RestaurantListView.swift */,
 				F463E3112701DD4C00F25C63 /* ActivityView.swift */,
 				F463E3132702C4EC00F25C63 /* RestaurantDetailView.swift */,
+				FB22CBDF2DB964CB00DFFC22 /* ReviewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				F463E3122701DD4C00F25C63 /* ActivityView.swift in Sources */,
 				F4C0D11826F9C46300AC5088 /* FoodPinApp.swift in Sources */,
 				F463E30E270182F900F25C63 /* Restaurant.swift in Sources */,
+				FB22CBE02DB964CB00DFFC22 /* ReviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

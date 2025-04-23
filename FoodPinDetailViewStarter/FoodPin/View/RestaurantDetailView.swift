@@ -10,6 +10,7 @@ import MapKit
 
 struct RestaurantDetailView: View {
     @Environment(\.dismiss) var dismiss
+    @State private var showReview = false
     
     var restaurant: Restaurant
     
@@ -80,6 +81,19 @@ struct RestaurantDetailView: View {
                         .cornerRadius(20)
                         .padding()
                 }
+                
+                Button(action: {
+                    self.showReview.toggle()
+                }) {
+                    Text("Rate it")
+                        .font(.system(.headline, design: .rounded))
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                .tint(Color.orange)
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.roundedRectangle(radius: 7))
+                .padding(.horizontal)
+                .padding(.bottom, 20)
             }
             
             
