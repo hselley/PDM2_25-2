@@ -110,7 +110,12 @@ struct RestaurantDetailView: View {
             }
         }
         .ignoresSafeArea()
-        
+        .overlay(
+            self.showReview ? ZStack {
+                ReviewView(isDisplayed: $showReview, restaurant: restaurant)
+                    .navigationBarHidden(true) // opcional: sólo en caso de que sea necesario
+            } : nil
+        )
     }
 }
 
