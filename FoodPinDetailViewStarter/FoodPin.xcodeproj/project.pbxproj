@@ -18,6 +18,7 @@
 		FB4EEF7D2DA6EE23005C1F4F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4EEF7C2DA6EE23005C1F4F /* MapView.swift */; };
 		FB5C213C2D9DB66500437AA9 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB5C213A2D9DB66500437AA9 /* Nunito-Bold.ttf */; };
 		FB5C213D2D9DB66500437AA9 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB5C213B2D9DB66500437AA9 /* Nunito-Regular.ttf */; };
+		FBB22A542DCBD5DD00910BEB /* NewRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB22A532DCBD5DD00910BEB /* NewRestaurantView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FB5C213A2D9DB66500437AA9 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Bold.ttf"; path = "../../../Nunito/static/Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		FB5C213B2D9DB66500437AA9 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Regular.ttf"; path = "../../../Nunito/static/Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		FB5C213E2D9DB71700437AA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FBB22A532DCBD5DD00910BEB /* NewRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRestaurantView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 				F4C0D11926F9C46300AC5088 /* RestaurantListView.swift */,
 				F463E3112701DD4C00F25C63 /* ActivityView.swift */,
 				F463E3132702C4EC00F25C63 /* RestaurantDetailView.swift */,
+				FBB22A532DCBD5DD00910BEB /* NewRestaurantView.swift */,
 				FB22CBDF2DB964CB00DFFC22 /* ReviewView.swift */,
 			);
 			path = View;
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBB22A542DCBD5DD00910BEB /* NewRestaurantView.swift in Sources */,
 				F4C0D11A26F9C46300AC5088 /* RestaurantListView.swift in Sources */,
 				FB4EEF7D2DA6EE23005C1F4F /* MapView.swift in Sources */,
 				F463E3142702C4EC00F25C63 /* RestaurantDetailView.swift in Sources */,
